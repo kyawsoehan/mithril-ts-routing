@@ -1,0 +1,195 @@
+$gold-color: #a67c00;
+$blue-color: #37caeb;
+
+$primary-color: $blue-color;
+
+.btn-gold {
+  background: rgb(191,149,63);
+  background: linear-gradient(90deg, rgba(191,149,63,1) 0%, rgba(252,246,186,1) 21%, rgba(179,135,40,1) 50%, rgba(251,245,183,1) 77%, rgba(170,119,28,1) 100%);
+}
+
+.form-control-borderless {
+  border: none;
+  box-shadow: none;
+}
+.form-control-borderless:focus {
+  border: none;
+  box-shadow: none !important;
+}
+
+.non-selectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+// later rewrite using media query to adjust the different mobile screen sizes
+
+.thumb-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 650px) {
+  .thumb-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 400px) {
+  .thumb-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
+
+  /* btn styles */
+  //https://codeburst.io/create-a-material-design-ripple-effect-without-js-9d3cbee25b3e
+  /*Create ripple effec*/
+  
+  .ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+
+  .ripple-light:after {
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  }
+  
+  .ripple-dark:after {
+    background-image: radial-gradient(circle, #ccc 10%, transparent 10.01%);
+  }
+  
+  .ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+  }
+
+/* flash hilight */
+
+.flash-lighter {
+  position: relative;
+  overflow: hidden;
+}
+
+.flash-lighter:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  //animation: animate-lighter 500ms ease-out 2 alternate;
+}
+@keyframes animate-lighter {
+  100% {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.animation-pulse {
+  transition: .3s;
+  animation: pulse 2s alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(.9);
+  }
+    100% {
+    transform: scale(1);
+  }
+}
+
+.animation-grow {
+  transition: .5s;
+  animation: grow 1s alternate;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.flash-run {
+  position: relative;
+  overflow: hidden;
+}
+
+.flash-run:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0));
+  opacity: 1;
+  animation: animate-run 5000ms infinite;  
+}
+
+@keyframes animate-run {
+  0% {    
+    opacity: 0.0;
+    transform: skewX(-35deg) translate(-100%);
+  }
+  20% {
+    opacity: 0.1;
+  }
+  50% {    
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.0;
+    transform: skewX(-35deg) translate(800%);
+  }
+}
+
+.mt-6{
+  margin-top: 30em;
+}
+
+.mb-6{
+  margin-bottom: 30em;
+}
